@@ -25,7 +25,7 @@ class Phrase {
   }
 
   checkLetter(letter) {
-    if(this.activePhrase.includes(letter)) {
+    if(this.phrase.includes(letter)) {
       return true;
     }else {
       return false;
@@ -34,13 +34,12 @@ class Phrase {
  
    showMatchedLetter(letter) {
   let letterClass = document.querySelectorAll('.letter');
-    for (let i = 0; i < letterClass; i++) {
-      if(letterClass[i].innerHTML === letter) {
-        consoleLog(letterClass)
+    for(let i = 0; i < letterClass.length; i++) {
+      if(letterClass[i].innerHTML === letter){
         letterClass[i].classList.remove('hide')
         letterClass[i].classList.add('show')
       }
-    } 
+    }
   } 
 }
 

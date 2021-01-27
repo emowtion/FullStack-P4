@@ -21,7 +21,7 @@ class Game {
         document.querySelector('#overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase()
         this.activePhrase.addPhraseToDisplay()
-        console.log(this.activePhrase)
+        
     }
 }
 
