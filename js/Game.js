@@ -19,8 +19,12 @@ class Game {
     };
     startGame() {
         document.querySelector('#overlay').style.display = 'none';
-        this.activePhrase = (this.getRandomPhrase().addPhraseToDisplay())
+        const randomPhrase = this.getRandomPhrase()
+        const phrase = new Phrase(randomPhrase.phrase);
+        phrase.addPhraseToDisplay();
+        this.activePhrase = phrase.phrase;
+        console.log(this.activePhrase)
+        phrase.checkLetter('y')
     }
-    
 }
 
