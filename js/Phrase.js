@@ -18,27 +18,27 @@ class Phrase {
         listItems.classList.add('space')
       } else {
         listItems.classList.add('letter')
+        listItems.classList.add('hide')
       }
     }
     document.querySelector('#phrase ul').appendChild(docFragement)
   }
 
   checkLetter(letter) {
-    if(game.activePhrase.includes(letter)) {
-      console.log(true)
+    if(this.activePhrase.includes(letter)) {
+      return true;
     }else {
-      console.log(false)
+      return false;
     }
   }
  
    showMatchedLetter(letter) {
-  let letterClass = document.querySelectorAll('.hide');
+  let letterClass = document.querySelectorAll('.letter');
     for (let i = 0; i < letterClass; i++) {
-      if(this.checkLetter(letter) === letterClass.innerHTML) {
-        letterClass.classList.remove('hide')
-        letterClass.classList.add('show')
-      }else {
-        letterClass.classList.remove('show')
+      if(letterClass[i].innerHTML === letter) {
+        consoleLog(letterClass)
+        letterClass[i].classList.remove('hide')
+        letterClass[i].classList.add('show')
       }
     } 
   } 
