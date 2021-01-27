@@ -24,17 +24,15 @@ class Phrase {
   }
 
   checkLetter(letter) {
-    for (let i = 0; i < game.activePhrase.length; i++) {
-      if(letter === game.activePhrase[i]){
-        console.log(true)
-      } else {
-        console.log(false)
-      }
+    if(game.activePhrase.includes(letter)) {
+      console.log(true)
+    }else {
+      console.log(false)
     }
   }
  
    showMatchedLetter(letter) {
-  let letterClass = document.getElementsByClassName('letter');
+  let letterClass = document.querySelectorAll('.hide');
     for (let i = 0; i < letterClass; i++) {
       if(this.checkLetter(letter) === letterClass.innerHTML) {
         letterClass.classList.remove('hide')

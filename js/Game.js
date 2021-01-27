@@ -20,11 +20,9 @@ class Game {
     startGame() {
         document.querySelector('#overlay').style.display = 'none';
         const randomPhrase = this.getRandomPhrase()
-        const phrase = new Phrase(randomPhrase.phrase);
-        phrase.addPhraseToDisplay();
-        this.activePhrase = phrase.phrase;
+        randomPhrase.addPhraseToDisplay();
+        this.activePhrase = randomPhrase.phrase
         console.log(this.activePhrase)
-        phrase.checkLetter('y')
     }
 }
 
