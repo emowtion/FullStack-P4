@@ -19,8 +19,18 @@ class Game {
     };
     startGame() {
         document.querySelector('#overlay').style.display = 'none';
-        this.activePhrase = this.getRandomPhrase()
-        this.activePhrase.addPhraseToDisplay()
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+        console.log(this.activePhrase);
+        }
+    checkForWin() {
+       /*  This method checks to see if the player has revealed all of the
+        letters in the active phrase. (recuperer tout les hide en tableau) ça veut dire que si j'ai pas les show j'ai fail donc si
+        hide[i] === 0 return false debile va 
+        */
+       const hideLetters = document.querySelectorAll('.hide');
+    
+        
         
     }
 }

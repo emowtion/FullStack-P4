@@ -4,24 +4,23 @@
 
 class Phrase {
   constructor(phrase) {
-    this.phrase = phrase.toLowerCase()
+    this.phrase = phrase.toLowerCase();
   }
 
   addPhraseToDisplay() {
-    const docFragement = document.createDocumentFragment();
+    const ul = document.querySelector('#phrase ul')
     for (let i = 0; i < this.phrase.length; i++) {
       const listItems = document.createElement('li');
       const liContent = document.createTextNode(this.phrase[i]);
       listItems.appendChild(liContent);
-      docFragement.appendChild(listItems);
       if (listItems.textContent === ' ') {
-        listItems.classList.add('space')
+        listItems.classList.add('space');
       } else {
-        listItems.classList.add('letter')
-        listItems.classList.add('hide')
+        listItems.classList.add('letter');
+        listItems.classList.add('hide');
       }
-    }
-    document.querySelector('#phrase ul').appendChild(docFragement)
+      ul.appendChild(listItems)
+    } 
   }
 
   checkLetter(letter) {
@@ -31,13 +30,13 @@ class Phrase {
       return false;
     }
   }
- 
+  
    showMatchedLetter(letter) {
   let letterClass = document.querySelectorAll('.letter');
     for(let i = 0; i < letterClass.length; i++) {
       if(letterClass[i].innerHTML === letter){
-        letterClass[i].classList.remove('hide')
-        letterClass[i].classList.add('show')
+        letterClass[i].classList.remove('hide');
+        letterClass[i].classList.add('show');
       }
     }
   } 
