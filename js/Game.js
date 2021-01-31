@@ -43,16 +43,16 @@ class Game {
 	}
 
 	gameOver() {
-		if (!this.checkForWin()) {
-			document.getElementById("overlay").style.display = "block";
-			document.getElementById("game-over-message").innerHTML =
-				"Sorry You Lost :(";
-			document.querySelector(".start").classList.add("lose");
-		} else {
+		if (this.checkForWin()) {
 			document.getElementById("overlay").style.display = "block";
 			document.getElementById("game-over-message").innerHTML =
 				"YaY! You Won :D";
 			document.querySelector(".start").classList.add("win");
+		} else {
+			document.getElementById("overlay").style.display = "block";
+			document.getElementById("game-over-message").innerHTML =
+				"Sorry Try Again";
+			document.querySelector(".start").classList.add("lose");
 		}
 	}
 }
