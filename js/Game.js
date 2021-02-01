@@ -43,16 +43,52 @@ class Game {
 	}
 
 	gameOver() {
+		const overlay = document.querySelector("#overlay");
+		overlay.style.display = "";
 		if (this.checkForWin()) {
-			document.getElementById("overlay").style.display = "block";
 			document.getElementById("game-over-message").innerHTML =
 				"YaY! You Won :D";
-			document.querySelector(".start").classList.add("win");
+			overlay.classList.add("win");
+			overlay.classList.remove("lose");
 		} else {
-			document.getElementById("overlay").style.display = "block";
 			document.getElementById("game-over-message").innerHTML =
 				"Sorry Try Again";
-			document.querySelector(".start").classList.add("lose");
+			overlay.classList.add("lose");
+			overlay.classList.remove("win");
+		}
+		this.resetGame();
+	}
+
+	resetGame() {
+		this.missed = 0;
+		document.querySelector("#phrase ul").innerHTML = "";
+		document.querySelectorAll(".key").forEach((key) => {
+			key.disabled = false;
+			key.classList.remove("chosen", "wrong");
+			key.classList.add("key");
+		});
+		document.querySelectorAll(".tries img").forEach((img) => {
+			img.src = "../images/liveHeart.png";
+		});
+		document.querySelectorAll(".show").forEach((element) => {
+			element.classList.remove("show");
+			element.classList.add("hide");
+		});
+		
+	}
+
+	handleInteraction(button) {
+		button.disabled = true;
+		if (!this.activePhrase.checkLetter(button.innerHTML)) {
+			button.classList.add("wrong");
+			this.removeLife();
+		} else {
+			button.classList.add("chosen");
+			this.activePhrase.showMatchedLetter(button.innerHTML);
+			this.checkForWin();
+		}
+		if (this.checkForWin()) {
+			this.gameOver();
 		}
 	}
 }
