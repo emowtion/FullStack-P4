@@ -20,8 +20,7 @@ class Phrase {
 				listItems.classList.add("hide");
 			}
 			ul.appendChild(listItems);
-    }
-    
+		}
 	}
 
 	checkLetter(letter) {
