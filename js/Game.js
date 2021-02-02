@@ -39,7 +39,7 @@ class Game {
 		// if checkForWin is false we replace a blue heart with a grey one if we miss more than 4 times the Game is over
 		let tries = document.querySelectorAll(".tries img");
 		if (!this.checkForWin()) {
-			tries[this.missed].src = "../images/lostHeart.png";
+			tries[this.missed].src = "images/lostHeart.png";
 			this.missed += 1;
 		}
 		if (this.missed >= 5) {
@@ -76,7 +76,7 @@ class Game {
 		});
 		document.querySelectorAll(".tries img").forEach((img) => {
 			// images are back to blue color
-			img.src = "../images/liveHeart.png";
+			img.src = "images/liveHeart.png";
 		});
 	}
 
